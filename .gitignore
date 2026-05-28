@@ -147,3 +147,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# 忽略frontmatter插件相关内容
+.frontmatter/
+frontmatter.json
