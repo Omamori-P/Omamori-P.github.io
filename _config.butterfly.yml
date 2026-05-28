@@ -100,7 +100,7 @@ footer_img: false
 # 網站背景
 # 可以設置為顏色或圖片
 # 圖片格式: url(http://xxxxxx.com/xxx.jpg)
-background:
+background: url(/assets/img/avatar.jpg)
 
 # 封面設置
 cover:
