@@ -3,6 +3,9 @@
 # website: https://hexo.io/
 # Recommended: Node.gitignore
 
+# ignore idea
+.idea/
+
 # Ignore generated directory
 public/
 
