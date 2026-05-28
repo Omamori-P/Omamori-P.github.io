@@ -79,8 +79,8 @@
   }
 }
 
-/* 首页 header 背景透明，统一使用 body 伪元素背景 */
-#page-header.full_page {
+/* 所有页面 header 背景透明，统一使用 body 伪元素背景 */
+#page-header {
   background: transparent !important;
 }
 
