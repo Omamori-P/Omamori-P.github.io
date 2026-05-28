@@ -13,10 +13,13 @@ nav:
   fixed: false
 
 menu:
-# 首頁: / || fas fa-home
-# 列表||fas fa-list:
-#   音樂: /music/ || fas fa-music
-#   電影: /movies/ || fas fa-video
+  首頁: / || fas fa-home
+  歸檔: /archives/ || fas fa-archive
+  標籤: /tags/ || fas fa-tags
+  分類: /categories/ || fas fa-folder-open
+  # 列表||fas fa-list:
+  #   音樂: /music/ || fas fa-music
+  #   電影: /movies/ || fas fa-video
 
 # --------------------------------------
 # 代碼塊設置
@@ -59,7 +62,7 @@ favicon: /img/butterfly-icon.png
 # 頭像設置
 avatar:
   # 頭像圖片鏈接
-  img: /img/butterfly-icon.png
+  img: /assets/img/avatar.jpg
   # 是否啟用頭像效果
   effect: false
 
@@ -171,7 +174,7 @@ index_top_img_height:
 # 首頁的副標題設置
 subtitle:
   # 是否啟用副標題
-  enable: false
+  enable: true
   # 是否啟用打字機效果
   effect: true
   # 自定義 typed.js
@@ -187,6 +190,7 @@ subtitle:
   source: false
   # 如果關閉打字機效果，副標題將僅顯示 sub 的第一行內容
   sub:
+    - 这个人很懒没有留下任何信息
 
 # 首頁文章佈局
 # 1: 行佈局
@@ -1223,7 +1227,7 @@ css_prefix: true
 # 插入代碼到 head（在 '</head>' 標籤之前）和底部（在 '</body>' 標籤之前）
 inject:
   head:
-  # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/assets/css/home-avatar.css">
   bottom:
   # - <script src="xxxx"></script>
 
