@@ -151,3 +151,5 @@ dist
 # 忽略frontmatter插件相关内容
 .frontmatter/
 frontmatter.json
+
+package-lock.json

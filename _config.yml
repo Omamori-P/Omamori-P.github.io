@@ -3,12 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Omamori-P's Blob
+# 副标题的展示形式为拼接在标题后面 title-subtitle
 subtitle: ''
+# 个人简介描述
 description: ''
-keywords:
-author: John Doe
-language: en
+# 主要作用是为搜索引擎提供网站的核心主题关键词列表，不过实际效果不佳，主要还是靠检索title
+keywords: 个人博客
+author: Omamori-P
+language: zh-CN
+# 默认使用电脑上的时区配置
 timezone: ''
 
 # URL
@@ -96,7 +100,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
