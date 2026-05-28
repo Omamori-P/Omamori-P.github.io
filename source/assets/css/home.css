@@ -1,3 +1,7 @@
+/**
+ * 首页样式配置
+ */
+
 /* 首页：头像 + 名字 + 简介 */
 .full_page #site-info::before {
   content: '';
@@ -44,5 +48,31 @@
 
   .full_page #site-info #site-subtitle {
     font-size: 0.9rem;
+  }
+}
+
+/* 导航栏：菜单项居中，搜索栏保持右上角 */
+#nav {
+  justify-content: center;
+}
+
+#nav #blog-info {
+  flex: none;
+  position: absolute;
+  left: 36px;
+}
+
+#nav #search-button {
+  position: absolute;
+  right: 36px;
+}
+
+@media screen and (max-width: 768px) {
+  #nav #blog-info {
+    left: 16px;
+  }
+
+  #nav #search-button {
+    right: 16px;
   }
 }

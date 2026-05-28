@@ -14,9 +14,9 @@ nav:
 
 menu:
   首頁: / || fas fa-home
-  歸檔: /archives/ || fas fa-archive
-  標籤: /tags/ || fas fa-tags
-  分類: /categories/ || fas fa-folder-open
+  档案: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
   # 列表||fas fa-list:
   #   音樂: /music/ || fas fa-music
   #   電影: /movies/ || fas fa-video
@@ -57,7 +57,7 @@ social:
 # --------------------------------------
 
 # 網站的 favicon 圖標
-favicon: /img/butterfly-icon.png
+favicon: /assets/img/favicon.png
 
 # 頭像設置
 avatar:
@@ -711,7 +711,7 @@ facebook_comments:
   # 評論排序方式，可選值：social / time / reverse_time
   order_by: social
   # 語言設置
-  lang: zh_TW
+  lang: zh_CN
 
 # Twikoo 評論插件配置
 # 官方文檔：https://github.com/imaegoo/twikoo
@@ -1227,7 +1227,7 @@ css_prefix: true
 # 插入代碼到 head（在 '</head>' 標籤之前）和底部（在 '</body>' 標籤之前）
 inject:
   head:
-    - <link rel="stylesheet" href="/assets/css/home-avatar.css">
+    - <link rel="stylesheet" href="/assets/css/home.css">
   bottom:
   # - <script src="xxxx"></script>
 
