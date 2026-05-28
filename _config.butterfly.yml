@@ -515,11 +515,11 @@ wordcount:
 # 不蒜子 PV / UV 統計
 busuanzi:
   # 網站 UV 統計
-  site_uv: true
+  site_uv: false
   # 網站 PV 統計
-  site_pv: true
+  site_pv: false
   # 頁面 PV 統計
-  page_pv: true
+  page_pv: false
 
 # --------------------------------------
 # 數學公式設置
