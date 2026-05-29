@@ -150,9 +150,12 @@ OhMyLive2d:
             localStorage.setItem('hiyori_msg', i + 1);
             return msgs[i];
           }
-#        message: |
-#          function(){
-#            return fetch('https://v1.hitokoto.cn/?c=l')
-#              .then(r => r.json())
-#              .then(d => d.hitokoto);
-#          }
+  then: |
+    if(window.__oml2d)window.__oml2d.destroy();
+    window.__oml2d=oml2d;
+    if(!window.__live2dInit){
+      window.__live2dInit=true;
+      document.addEventListener('pjax:send',function(){
+        if(window.__oml2d){window.__oml2d.destroy();window.__oml2d=null}
+      });
+    }
