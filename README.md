@@ -10,4 +10,6 @@ npm install hexo-theme-butterfly
 npm install hexo-browsersync --save-dev
 # 安装 hexo-generator-searchdb 搜索插件
 npm install hexo-generator-searchdb --save
+# 安装 hexo-oh-my-live2d
+npm install hexo-oh-my-live2d
 ```

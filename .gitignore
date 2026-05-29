@@ -154,11 +154,5 @@ frontmatter.json
 
 package-lock.json
 
-# 忽略所有图片文件
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.ico
-*.webp
+# 忽略图片文件
+source/assets/img/

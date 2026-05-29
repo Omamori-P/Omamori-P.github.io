@@ -106,3 +106,53 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# hexo-oh-my-live2d 看板娘配置
+# https://github.com/feiyuhao/hexo-oh-my-live2d
+OhMyLive2d:
+  enable: true
+  CDN: https://unpkg.com/oh-my-live2d
+  option:
+    dockedPosition: 'left'
+    mobileDisplay: false
+    models:
+      - path: /assets/live2d/hiyori/hiyori_pro_t11.model3.json
+        scale: 0.1
+        position: [-10, 35]
+        stageStyle:
+          width: 350
+          height: 450
+#        mobileScale: 0.1
+#        mobilePosition: [-10, 23]
+#        mobileStageStyle:
+#          width: 180
+#          height: 200
+    parentElement: document.body
+    primaryColor: 'var(--btn-bg)'
+    sayHello: false
+    tips:
+      style:
+        width: 230
+        height: 120
+        left: calc(50% - 20px)
+        top: -100px
+      mobileStyle:
+        width: 180
+        height: 80
+        left: calc(50% - 30px)
+        top: -100px
+      idleTips:
+        interval: 120000
+        message: |
+          function(){
+            const msgs = ['你好呀~', '欢迎来到我的小站~'];
+            const i = Number(localStorage.getItem('hiyori_msg') || 0) % msgs.length;
+            localStorage.setItem('hiyori_msg', i + 1);
+            return msgs[i];
+          }
+#        message: |
+#          function(){
+#            return fetch('https://v1.hitokoto.cn/?c=l')
+#              .then(r => r.json())
+#              .then(d => d.hitokoto);
+#          }
