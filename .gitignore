@@ -152,7 +152,5 @@ dist
 .frontmatter/
 frontmatter.json
 
-package-lock.json
-
 # 忽略图片文件
 source/assets/img/
