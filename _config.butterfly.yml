@@ -519,7 +519,7 @@ busuanzi:
   # 網站 PV 統計
   site_pv: false
   # 頁面 PV 統計
-  page_pv: false
+  page_pv: true
 
 # --------------------------------------
 # 數學公式設置
