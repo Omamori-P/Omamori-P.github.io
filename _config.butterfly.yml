@@ -504,7 +504,7 @@ copy:
 # 需要安裝 hexo-wordcount 插件
 wordcount:
   # 是否啟用字數統計
-  enable: false
+  enable: true
   # 在文章元信息中顯示字數統計
   post_wordcount: true
   # 在文章元信息中顯示閲讀時間
