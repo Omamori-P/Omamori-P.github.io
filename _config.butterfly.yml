@@ -29,9 +29,9 @@ code_blocks:
   # 代碼塊主題: darker / pale night / light / ocean / false
   theme: light
   # 是否使用 Mac 風格
-  macStyle: false
+  macStyle: true
   # 代碼塊高度限制（單位: px）
-  height_limit: false
+  height_limit: 250
   # 是否自動換行
   word_wrap: false
 
@@ -41,9 +41,9 @@ code_blocks:
   # 是否顯示語言標籤
   language: true
   # true: 收縮代碼塊 | false: 展開代碼塊 | none: 展開代碼塊並隱藏按鈕
-  shrink: true
+  shrink: false
   # 是否顯示全屏顯示代碼塊按鈕
-  fullpage: false
+  fullpage: true
 
 # 社交媒體鏈接
 # 格式:
