@@ -12,4 +12,6 @@ npm install hexo-browsersync --save-dev
 npm install hexo-generator-searchdb --save
 # 安装 hexo-oh-my-live2d
 npm install hexo-oh-my-live2d
+# 字数统计与阅读时间
+npm install hexo-word-counter --save
 ```
