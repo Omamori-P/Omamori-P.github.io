@@ -1228,8 +1228,9 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/assets/css/home.css">
+    - <link rel="stylesheet" href="/assets/css/tags.css">
   bottom:
-  # - <script src="xxxx"></script>
+    - <script defer src="/assets/js/tags.js"></script>
 
 # CDN 設置
 # 除非你知道它們的工作原理，否則不要修改以下設置

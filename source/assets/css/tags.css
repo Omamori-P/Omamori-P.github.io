@@ -1,0 +1,377 @@
+/* =============================================
+   标签云 — 重写：空间感 / 高对比 / Z 轴悬浮
+   ============================================= */
+
+/* ---------- 马卡龙色系 — 仅用于内发光与次表面散射 ---------- */
+:root {
+  --mc-1: #f8bbd0;  --mc-2: #bbdefb;  --mc-3: #c8e6c9;  --mc-4: #ffe0b2;  --mc-5: #e1bee7;
+  --mc-6: #b2ebf2;  --mc-7: #ffecb3;  --mc-8: #c5cae9;  --mc-9: #d7ccc8;  --mc-10: #f0f4c3;
+}
+
+/* ==================== 页面标题 ==================== */
+.type-tags .page-title,
+.tag-cloud-title {
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 40px rgba(255,255,255,0.15);
+  margin-bottom: 1.8rem;
+  padding-top: 0.5rem;
+}
+
+/* ==================== 玻璃卡片 — 容器本身不模糊，仅用阴影营造悬浮感 ==================== */
+.type-tags #page {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+
+  /* 巨大柔和外阴影 — 让卡片飘起来 */
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+
+  padding: 40px 30px !important;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+/* ==================== 标签云容器 ==================== */
+.tag-cloud-list {
+  text-align: center !important;
+  padding: 30px 0 10px;
+  perspective: 900px;
+}
+
+/* ==================== 胶囊标签 — 现代渐变光效 ==================== */
+.tag-cloud-list a {
+  position: relative;
+  display: inline-block;
+  margin: 12px 14px;
+  padding: 12px 32px;
+  line-height: 1.5;
+  border-radius: 9999px;
+  border: none;                    /* 边框交给 ::before 实现 */
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.45) !important;
+  overflow: hidden;
+  user-select: none;
+  transition: background 0.5s ease;
+  animation:
+    tagEntrance 0.7s cubic-bezier(0.23, 1, 0.32, 1) both,
+    tagFloat 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* -- 渐变圆角边框（::before 放在标签背后，留出 1.5px 边缘） -- */
+.tag-cloud-list a::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 9999px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
+  transition: opacity 0.4s ease;
+}
+
+/* -- 表面高光（::after 已用于涟漪，用额外伪元素实现顶部反射） -- */
+/* 改用 background-image 直接叠加在基底上 */
+
+.tag-cloud-list a:nth-child(6n+1) { animation-delay: 0.00s, 0.70s; margin-top: 2px; }
+.tag-cloud-list a:nth-child(6n+2) { animation-delay: 0.12s, 0.82s; margin-top: 12px; }
+.tag-cloud-list a:nth-child(6n+3) { animation-delay: 0.24s, 0.94s; margin-top: -6px; }
+.tag-cloud-list a:nth-child(6n+4) { animation-delay: 0.36s, 1.06s; margin-top: 8px; }
+.tag-cloud-list a:nth-child(6n+5) { animation-delay: 0.48s, 1.18s; margin-top: -10px; }
+.tag-cloud-list a:nth-child(6n+6) { animation-delay: 0.60s, 1.30s; margin-top: 14px; }
+
+/* -- 同色晕染 + 渐变边框 + 顶部高光 -- */
+.tag-cloud-list a:nth-child(10n+1) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(248,187,208,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+1)::before {
+  background: linear-gradient(135deg, rgba(248,187,208,0.45) 0%, rgba(248,187,208,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+2) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(187,222,251,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+2)::before {
+  background: linear-gradient(135deg, rgba(187,222,251,0.45) 0%, rgba(187,222,251,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+3) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(200,230,201,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+3)::before {
+  background: linear-gradient(135deg, rgba(200,230,201,0.45) 0%, rgba(200,230,201,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+4) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(255,224,178,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+4)::before {
+  background: linear-gradient(135deg, rgba(255,224,178,0.45) 0%, rgba(255,224,178,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+5) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(225,190,231,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+5)::before {
+  background: linear-gradient(135deg, rgba(225,190,231,0.45) 0%, rgba(225,190,231,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+6) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(178,235,242,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+6)::before {
+  background: linear-gradient(135deg, rgba(178,235,242,0.45) 0%, rgba(178,235,242,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+7) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(255,236,179,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+7)::before {
+  background: linear-gradient(135deg, rgba(255,236,179,0.45) 0%, rgba(255,236,179,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+8) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(197,202,233,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+8)::before {
+  background: linear-gradient(135deg, rgba(197,202,233,0.45) 0%, rgba(197,202,233,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+9) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(215,204,200,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+9)::before {
+  background: linear-gradient(135deg, rgba(215,204,200,0.45) 0%, rgba(215,204,200,0.05) 60%);
+}
+
+.tag-cloud-list a:nth-child(10n+10) {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(240,244,195,0.18) 0%, transparent 60%),
+    rgba(0,0,0,0.45) !important;
+}
+.tag-cloud-list a:nth-child(10n+10)::before {
+  background: linear-gradient(135deg, rgba(240,244,195,0.45) 0%, rgba(240,244,195,0.05) 60%);
+}
+
+@keyframes tagFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ==================== 液态涟漪 ==================== */
+.tag-cloud-list a::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--ripple-y, 50%) - 160px);
+  left: calc(var(--ripple-x, 50%) - 160px);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  transition:
+    transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.5s ease;
+}
+
+.tag-cloud-list a:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==================== 悬浮：渐变提亮 + 边框饱和 ==================== */
+.tag-cloud-list a:nth-child(10n+1):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(248,187,208,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+1):hover::before {
+  background: linear-gradient(135deg, rgba(248,187,208,0.7) 0%, rgba(248,187,208,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+2):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(187,222,251,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+2):hover::before {
+  background: linear-gradient(135deg, rgba(187,222,251,0.7) 0%, rgba(187,222,251,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+3):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(200,230,201,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+3):hover::before {
+  background: linear-gradient(135deg, rgba(200,230,201,0.7) 0%, rgba(200,230,201,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+4):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(255,224,178,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+4):hover::before {
+  background: linear-gradient(135deg, rgba(255,224,178,0.7) 0%, rgba(255,224,178,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+5):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(225,190,231,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+5):hover::before {
+  background: linear-gradient(135deg, rgba(225,190,231,0.7) 0%, rgba(225,190,231,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+6):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(178,235,242,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+6):hover::before {
+  background: linear-gradient(135deg, rgba(178,235,242,0.7) 0%, rgba(178,235,242,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+7):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(255,236,179,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+7):hover::before {
+  background: linear-gradient(135deg, rgba(255,236,179,0.7) 0%, rgba(255,236,179,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+8):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(197,202,233,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+8):hover::before {
+  background: linear-gradient(135deg, rgba(197,202,233,0.7) 0%, rgba(197,202,233,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+9):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(215,204,200,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+9):hover::before {
+  background: linear-gradient(135deg, rgba(215,204,200,0.7) 0%, rgba(215,204,200,0.2) 60%);
+}
+.tag-cloud-list a:nth-child(10n+10):hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(240,244,195,0.32) 0%, transparent 50%),
+    rgba(0,0,0,0.3) !important;
+}
+.tag-cloud-list a:nth-child(10n+10):hover::before {
+  background: linear-gradient(135deg, rgba(240,244,195,0.7) 0%, rgba(240,244,195,0.2) 60%);
+}
+
+/* ==================== 流动背景光斑 ==================== */
+.type-tags #body-wrap::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  z-index: -1;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(73,177,245,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 25%, rgba(180,130,255,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(72,202,228,0.08) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: bgFlow 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bgFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 50% 100%; }
+}
+
+/* ==================== 主题适配 ==================== */
+[data-theme='light'] .type-tags #page {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme='dark'] .type-tags #page {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+[data-theme='dark'] .tag-cloud-list a {
+  /* 暗黑模式下 nth-child 已处理多层渐变，无需额外覆盖 */
+}
+
+/* ==================== 移动端 ==================== */
+@media screen and (max-width: 768px) {
+  .type-tags #page {
+    padding: 24px 16px !important;
+    margin: 12px 8px;
+    border-radius: 16px;
+  }
+  .tag-cloud-list { padding: 10px 0; }
+  .tag-cloud-list a {
+    margin: 8px 10px;
+    padding: 8px 22px;
+    font-size: 0.85rem !important;
+  }
+  .type-tags .page-title,
+  .tag-cloud-title { font-size: 1.6em; margin-bottom: 1.2rem; }
+}
+
+/* ==================== 入场动画 ==================== */
+@keyframes tagsFadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tagEntrance {
+  from { opacity: 0; transform: translateY(30px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
