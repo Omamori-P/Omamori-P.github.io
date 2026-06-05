@@ -1,7 +1,6 @@
 /**
  * 首页样式配置
  */
-
 /* 首页：头像 + 名字 + 简介
  background 对应首页展示的头像
  */
@@ -10,7 +9,7 @@
   display: block;
   width: 140px;
   height: 140px;
-  background: url('/assets/img/avatar.jpg') no-repeat center;
+  background: url('https://cdn.jsdelivr.net/gh/Omamori-P/PicList-Image-Hosting@main/blog/2026-06-05-avatar.webp') no-repeat center;
   background-size: cover;
   border-radius: 50%;
   margin: 0 auto 1.5rem;
@@ -97,7 +96,7 @@ body::before {
   z-index: -2;
   width: 100%;
   height: 100%;
-  background: url('/assets/img/background.jpg') no-repeat center/cover;
+  background: url('https://cdn.jsdelivr.net/gh/Omamori-P/PicList-Image-Hosting@main/blog/2026-06-05-background.webp') no-repeat center/cover;
 }
 
 /* 暗黑模式：背景上方覆盖半透明遮罩 */

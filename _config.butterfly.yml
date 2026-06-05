@@ -57,12 +57,12 @@ social:
 # --------------------------------------
 
 # 網站的 favicon 圖標
-favicon: /assets/img/favicon.png
+favicon: https://cdn.jsdelivr.net/gh/Omamori-P/PicList-Image-Hosting@main/blog/2026-06-05-favicon.webp
 
 # 頭像設置
 avatar:
   # 頭像圖片鏈接
-  img: /assets/img/avatar.jpg
+  img: https://cdn.jsdelivr.net/gh/Omamori-P/PicList-Image-Hosting@main/blog/2026-06-05-favicon.webp
   # 是否啟用頭像效果
   effect: false
 
@@ -97,10 +97,10 @@ category_per_img:
 # 頁腳的背景圖片
 footer_img: false
 
-# 網站背景
+# 網站背景 现在需要在css中配置
 # 可以設置為顏色或圖片
 # 圖片格式: url(http://xxxxxx.com/xxx.jpg)
-background: url(/assets/img/avatar.jpg)
+# background: url(/assets/img/avatar.jpg)
 
 # 封面設置
 cover:
