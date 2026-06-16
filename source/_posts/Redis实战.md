@@ -2,7 +2,7 @@
 title: Redis实战
 date: 2024-03-05 17:06:55
 tags:
-  - 缓存
+  - 非关系型数据库
 categories:
   - 中间件
   - 非关系型数据库
