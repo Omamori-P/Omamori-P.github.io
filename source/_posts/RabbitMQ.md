@@ -973,11 +973,11 @@ public MessageConverter messageConverter(){
 
  基于死信队列虽然可以实现延迟消息，但是太麻烦了。因此RabbitMQ社区提供了一个延迟消息插件来实现相同的效果。
 
-[官方文档说明]: https://www.rabbitmq.com/blog/2015/04/16/scheduling-messages-with-rabbitmq
+[官方文档说明](https://www.rabbitmq.com/blog/2015/04/16/scheduling-messages-with-rabbitmq)
 
 ### 下载安装
 
-[DelayExchange插件地址]: https://github.com/rabbitmq/rabbitmq-delayed-message-exchange
+你可以在 [DelayExchange插件地址](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange)处下载插件 
 
 因为我们是基于Docker安装，所以需要先查看RabbitMQ的插件目录对应的数据卷。
 
