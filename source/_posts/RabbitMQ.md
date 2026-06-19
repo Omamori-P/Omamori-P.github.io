@@ -2,6 +2,7 @@
 title: RabbitMQ
 date: 2024-03-11 18:16:54
 tags:
+  - 中间件
   - 消息队列
 categories:
   - 中间件

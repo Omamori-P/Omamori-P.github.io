@@ -2,6 +2,7 @@
 title: Elasticsearch
 date: 2024-06-10 20:11:14
 tags:
+  - 中间件
   - 搜索引擎
 categories:
   - 中间件
